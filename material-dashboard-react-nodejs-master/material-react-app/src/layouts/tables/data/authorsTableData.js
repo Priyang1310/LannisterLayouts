@@ -66,7 +66,7 @@ export default function data() {
             <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
           </MDBox>
         ),
-        employed: (
+        employed: ( 
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
             23/04/18
           </MDTypography>

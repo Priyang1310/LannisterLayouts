@@ -33,31 +33,31 @@ const UserProfile = () => {
     confirmPassError: false,
   });
 
-  const getUserData = async () => {
-    const response = await AuthService.getProfile();
-    if (response.data.id == 1) {
-      setIsDemo(process.env.REACT_APP_IS_DEMO === "true");
-    }
-    setUser((prevUser) => ({
-      ...prevUser,
-      ...response.data.attributes,
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
-    }));
-  };
+  // const getUserData = async () => {
+  //   const response = await AuthService.getProfile();
+  //   if (response.data.id == 1) {
+  //     setIsDemo(process.env.REACT_APP_IS_DEMO === "true");
+  //   }
+  //   setUser((prevUser) => ({
+  //     ...prevUser,
+  //     ...response.data.attributes,
+  //     currentPassword: "",
+  //     newPassword: "",
+  //     confirmPassword: "",
+  //   }));
+  // };
 
-  useEffect(() => {
-    getUserData();
-  }, []);
+  // useEffect(() => {
+  //   getUserData();
+  // }, []);
 
-  useEffect(() => {
-    if (notification === true) {
-      setTimeout(() => {
-        setNotification(false);
-      }, 5000);
-    }
-  }, [notification]);
+  // useEffect(() => {
+  //   if (notification === true) {
+  //     setTimeout(() => {
+  //       setNotification(false);
+  //     }, 5000);
+  //   }
+  // }, [notification]);
 
   const changeHandler = (e) => {
     setUser({
@@ -121,18 +121,18 @@ const UserProfile = () => {
     }
 
     // call api for update
-    const response = await AuthService.updateProfile(JSON.stringify(userData));
+    // const response = await AuthService.updateProfile(JSON.stringify(userData));
 
     // reset errors
-    setErrors({
-      nameError: false,
-      emailError: false,
-      passwordError: false,
-      newPassError: false,
-      confirmPassError: false,
-    });
+    // setErrors({
+    //   nameError: false,
+    //   emailError: false,
+    //   passwordError: false,
+    //   newPassError: false,
+    //   confirmPassError: false,
+    // });
 
-    setNotification(true);
+    // setNotification(true);
   };
 
   return (

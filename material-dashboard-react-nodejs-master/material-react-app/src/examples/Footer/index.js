@@ -67,17 +67,10 @@ function Footer({ company, links }) {
           </Icon>
         </MDBox>
         by
-        <Link href={href} target="_blank">
-          <MDTypography variant="button" fontWeight="medium">
-            &nbsp;{name}&nbsp;
-          </MDTypography>
-        </Link>
-        &amp;
-        <Link href="https://updivision.com" target="_blank">
-          <MDTypography variant="button" fontWeight="medium">
-            &nbsp;UPDIVISION&nbsp;
-          </MDTypography>
-        </Link>
+        <MDTypography variant="button" fontWeight="medium">
+          &nbsp;Lannister Layouts&nbsp;
+        </MDTypography>
+       
         for a better web.
       </MDBox>
       <MDBox
@@ -107,11 +100,11 @@ function Footer({ company, links }) {
 Footer.defaultProps = {
   company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
   links: [
-    { href: "https://updivision.com/", name: "UPDIVISION" },
-    { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    // { href: "https://updivision.com/", name: "UPDIVISION" },
+    // { href: "https://www.creative-tim.com/", name: "Creative Tim" },
+    // { href: "https://www.creative-tim.com/presentation", name: "About Us" },
+    // { href: "https://www.creative-tim.com/blog", name: "Blog" },
+    // { href: "https://www.creative-tim.com/license", name: "License" },
   ],
 };
 
