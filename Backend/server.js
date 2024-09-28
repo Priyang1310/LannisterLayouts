@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 require("dotenv").config();
-const { uploadOnCloudinary } = require("./config/cloudinary");
+// const { uploadOnCloudinary } = require("./config/cloudinary");
 const { ConnectMongoDB } = require(".//config/connection");
 const app = express();
 app.use(cors());
@@ -21,8 +21,11 @@ ConnectMongoDB(MONGO_URL)
   });
 
 const student_router = require("./routes/Student");
-
+const admin_router = require("./routes/Admin");
+const teacher_router=require("./routes/Teacher")
 app.use("/student", student_router);
+app.use("/admin", admin_router);
+app.use("/teacher",teacher_router);
 app.listen(PORT, () => {
   console.log(
     "Server has been started at link: " + `http://localhost:${PORT}/`

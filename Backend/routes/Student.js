@@ -1,6 +1,8 @@
-const express = require("express");
-const {who, getAllBook, addBookToUser, deletebook} = require('../controllers/jaimin')
+const express = require('express');
 const router = express.Router();
-const {createBook,getBook} = require('../controllers/jaimin');
+const { submitAssignment } = require('../controllers/Student');
+
+// Route to upload a file
+router.post('/upload', submitAssignment);
 
 module.exports = router;

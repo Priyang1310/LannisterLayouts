@@ -3,32 +3,33 @@ const Schema = mongoose.Schema;
 
 // Define the Course schema
 const CourseSchema = new Schema({
-  course_name: {
+  coursename: {
     type: String,
     required: true,
   },
   teachers: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Teacher', // Assuming you have a Teacher model
+      ref: 'Teacher', 
+      default: []
     },
   ],
   students: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Student', // Assuming you have a Student model
+      ref: 'Student', 
     },
   ],
   announcements: [
     {
       date: {
         type: Date,
-        required: true,
+        // required: true,
         default: Date.now,
       },
       content: {
         type: String,
-        required: true,
+        // required: true,
       },
     },
   ],
@@ -36,33 +37,19 @@ const CourseSchema = new Schema({
     {
       homework_id: {
         type: Schema.Types.ObjectId,
-        ref: 'HomeworkCollections', // Assuming you have a Homework model
+        ref: 'HomeworkCollections', 
       },
-      title: {
-        type: String,
-        required: true,
-      },
-      description: {
-        type: String,
-      },
-      due_date: {
-        type: Date,
-      },
-      assigned_date: {
-        type: Date,
-        required: true,
-        default: Date.now,
-      },
+      
     },
   ],
   quizzes: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Quiz', // Assuming you have a Quiz model
+      ref: 'Quiz', 
     },
   ],
-}, { timestamps: true }); // Automatically adds createdAt and updatedAt timestamps
-
+}, { timestamps: true }); 
+CourseSchema.index({ coursename: 1 }, { unique: false }); // Remove unique constraint
 // Export the Course model
 const Course = mongoose.model("Course", CourseSchema);
 
