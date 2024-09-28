@@ -1,37 +1,64 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const StudentSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-  },
-  picture : {
-   type: String,
-  },
-  books: [
-    {
-      bookId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Book',
-        required: true,
+const StudentSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+    },
+    courses: [
+      {
+        courseId: {
+          type: Schema.Types.ObjectId,
+          ref: "Course", 
+          required: true,
+        },
       },
-      issueDate: {
-        type: Date,
-        required: true,
-        default: Date.now,
+    ],
+    homeworkSubmissions: [
+      {
+        homeworkId: {
+          type: Schema.Types.ObjectId,
+          ref: "HomeworkSubmission", 
+          required: true,
+        }
       },
-    }, 
-  ],
-});
+    ],
+    quizzes: [
+      {
+        quizId: {
+          type: Schema.Types.ObjectId,
+          ref: "Quiz", 
+          required: true,
+        },
+        status:{
+          type:Boolean,
+          default:false,
+        },
+        score: {
+          type: Number,
+          min: 0,
+          max: 100,
+        },
+        submissionDate: {
+          type: Date,
+          required: true,
+          default: Date.now,
+        },
+      },
+    ],
+  },
+  { timestamps: true }
+); 
 
 const Student = mongoose.model("Student", StudentSchema);
 
