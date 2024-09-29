@@ -58,7 +58,7 @@ const StudentSchema = new Schema(
           },
           submissionDate: {
             type: Date,
-            required: true,
+            // required: true,
             default: Date.now,
           },
         },
@@ -79,7 +79,7 @@ const StudentSchema = new Schema(
           },
           status: {
             type: String,
-            enum: ["present", "absent"], // Status can be 'present' or 'absent'
+            enum: ["Present", "Absent"], // Status can be 'present' or 'absent'
             required: true,
           },
         },
