@@ -1,7 +1,13 @@
 import { useState, useEffect, useMemo, useContext } from "react";
 
 // react-router components
-import { Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
@@ -32,7 +38,11 @@ import createCache from "@emotion/cache";
 import routes from "routes";
 
 // Material Dashboard 2 React contexts
-import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
+import {
+  useMaterialUIController,
+  setMiniSidenav,
+  setOpenConfigurator,
+} from "context";
 
 // Images
 import brandWhite from "assets/images/logo-ct.png";
@@ -100,7 +110,8 @@ export default function App() {
   };
 
   // Change the openConfigurator state
-  const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
+  const handleConfiguratorOpen = () =>
+    setOpenConfigurator(dispatch, !openConfigurator);
 
   // if the token expired or other errors it logs out and goes to the login page
   const navigate = useNavigate();
@@ -235,8 +246,12 @@ export default function App() {
               <>
                 <Sidenav
                   color={sidenavColor}
-                  brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
-                  brandName="Material Dashboard 2"
+                  brand={
+                    (transparentSidenav && !darkMode) || whiteSidenav
+                      ? brandDark
+                      : brandWhite
+                  }
+                  brandName="EduEase"
                   routes={routes}
                   onMouseEnter={handleOnMouseEnter}
                   onMouseLeave={handleOnMouseLeave}
@@ -248,14 +263,13 @@ export default function App() {
             {layout === "vr" && <Configurator />}
 
             <Routes>
-            {/*   <Route path="login" element={<Navigate to="/auth/login" />} />
+              {/*   <Route path="login" element={<Navigate to="/auth/login" />} />
               <Route path="register" element={<Navigate to="/auth/register" />} />
               <Route path="forgot-password" element={<Navigate to="/auth/forgot-password" />} />
               {getRoutes(routes)} */}
 
               <Route path="*" element={<Navigate to="/dashboard" />} />
             </Routes>
-            
           </ThemeProvider>
         </CacheProvider>
       ) : (
@@ -265,8 +279,12 @@ export default function App() {
             <>
               <Sidenav
                 color={sidenavColor}
-                brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
-                brandName="Material Dashboard 2"
+                brand={
+                  (transparentSidenav && !darkMode) || whiteSidenav
+                    ? brandDark
+                    : brandWhite
+                }
+                brandName="EduEase"
                 routes={routes}
                 onMouseEnter={handleOnMouseEnter}
                 onMouseLeave={handleOnMouseLeave}
@@ -286,7 +304,7 @@ export default function App() {
               path="user-profile"
               element={
                 // <ProtectedRoute isAuthenticated={authContext.isAuthenticated}>
-                  <UserProfile />
+                <UserProfile />
                 /* </ProtectedRoute> */
               }
               key="user-profile"
@@ -296,7 +314,7 @@ export default function App() {
               path="user-management"
               element={
                 // <ProtectedRoute isAuthenticated={authContext.isAuthenticated}>
-                  <UserManagement />
+                <UserManagement />
                 /* </ProtectedRoute> */
               }
               key="user-management"

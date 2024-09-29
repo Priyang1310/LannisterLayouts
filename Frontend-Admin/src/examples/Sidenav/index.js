@@ -26,7 +26,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
-
+import logo from "../../assets/images/Admin/Logo.png"
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
@@ -190,30 +190,30 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </MDTypography>
         </MDBox>
         <MDBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <MDBox component="img" src={brand} alt="Brand" width="2rem" />}
+          {brand && <MDBox component="img" src={logo} alt="Brand" width="4rem" />}
           <MDBox
             width={!brandName && "100%"}
             sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
           >
-            <MDTypography component="h6" variant="button" fontWeight="medium" color={textColor}>
+            <MDTypography component="h6" variant="button" fontWeight="medium" color={textColor} style={{ fontSize: '24px' }} >
               {brandName}
             </MDTypography>
           </MDBox>
         </MDBox>
       </MDBox>
-      <Divider
+      {/* <Divider
         light={
           (!darkMode && !whiteSidenav && !transparentSidenav) ||
           (darkMode && !transparentSidenav && whiteSidenav)
         }
-      />
+      /> */}
       <List>
-        <MDBox display="flex flex-col" alignItems="center">
+        {/* <MDBox display="flex flex-col" alignItems="center">
           <MDTypography color={textColor} variant="body2" fontWeight="medium" pl="1.5rem">
             Examples
           </MDTypography>
           {renderExampleRoutes}
-        </MDBox>
+        </MDBox> */}
         <Divider
           light={
             (!darkMode && !whiteSidenav && !transparentSidenav) ||
